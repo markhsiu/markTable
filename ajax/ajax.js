@@ -2,6 +2,12 @@
  * Created by MarkHsiu on 2015/10/19.
  */
 
+/**
+ * ajax
+ * @param method
+ * @param url
+ * @param sendText
+ */
 function ajax(method,url,sendText){
 
     var ids=['MSXML2.XMLHTTP.3.0','MSXML2.XMLHTTP','Microsoft.XMLHTPP'];
@@ -17,7 +23,7 @@ function ajax(method,url,sendText){
     }
 
     xhr.open(method.toUpperCase(),url,true);
-    xhr.send(sendText);
+    xhr.send((typeof sendText==='undefined') ? sendText : '');
     xhr.onreadystatechange=function(){
         if(xhr.readyState < 4){
             return; // not ready yet  if readyState==4 that is ready
@@ -37,11 +43,25 @@ var method={
     POST: 'POST'
 }
 
-function test(){
-    var data=ajax(method.GET,'myData.json','Hello World!');
-    console.log(data);
+// add listener for dom click
+function paraHandler(dom,callback){
+    if(dom.addEventListener){ //FF
+        dom.addEventListener('click',callback,false);
+    } else if(dom.attachEvent){ //IE
+        dom.attachEvent('onclick',callback);
+    } else {
+        dom.onclick=callback;
+    }
 }
 
-(function(){
-    test();
-})();
+
+function ajaxJsonp (url){
+    var script=document.createElement('iframe');
+
+    script.setAttribute('src',url);
+    document.body.appendChild(script);
+
+}
+
+
+

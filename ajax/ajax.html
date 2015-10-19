@@ -7,5 +7,36 @@
 </head>
 <body>
 
+<center style="margin-top: 50px;">
+    <form>
+        <input name="myquery" id="myquery" value=""/> <input type="button" value="Search" id="search"/> <br/>
+        <div id="content"></div>
+    </form>
+    <center>
+
+        <script>
+            function test(){
+                var data = ajax(method.GET, 'myData.json', 'Hello World!');
+                console.log(data);
+            }
+
+
+            function googleSearch(myquery){
+                 ajaxJsonp('http://google.com/search?callback=resultsCallBack&q=' + myquery);
+            }
+            function resultsCallBack(data){
+                //document.getElementById('content').innerHTML = data.;
+            }
+
+            (function(){
+                // test();
+
+                paraHandler(document.getElementById('search'),function(){
+                    var q = document.getElementById('myquery');
+                     googleSearch(q.value);
+                });
+
+            })();
+        </script>
 </body>
 </html>
