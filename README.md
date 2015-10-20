@@ -1,2 +1,6 @@
 # jslearn
- my learn for javascript ,create for webstorm
+  my learn for javascript 
+ 
+##developer tools
+ *  webstorm
+ * firebug
