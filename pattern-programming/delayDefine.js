@@ -21,7 +21,7 @@ MYAPP.myevent={
             }
         } else {// older browers
             MYAPP.myevent.addListener = function(el, type, fn){
-                el['on'+type) = fn;
+                el['on'+type] = fn;
             }
         }
 
