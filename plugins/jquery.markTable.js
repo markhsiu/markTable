@@ -11,6 +11,7 @@
 //
 ;
 (function ($, window, document, undefined) {
+
 	var pluginName = "markTable";
 	var defaults = {
 			 pageNo:1,
@@ -64,9 +65,6 @@
 			}
 
 	};
-	
-	 
-	 
 	 
 	
 })(jQuery, window, document);
