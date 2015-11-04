@@ -10,19 +10,19 @@ MYAPP.dom.Button = function(text, config){
         bordor: '1px solid black',
         color: 'black',
         background: 'grey'
-    }
+    };
 
     //私有方法
     function setStyles(){
         for (var i in styles) {
             b[i] = config[i] || styles[i];
         }
-    }
+    };
 
     //特权函数
     this.getDefault= function(){
         return styles;
-    }
+    };
 
     config = config || { };
     var b= document.createElement('input');
@@ -30,5 +30,5 @@ MYAPP.dom.Button = function(text, config){
     b.value = text;
     setStyles();
     return b;
-}
+};
 
