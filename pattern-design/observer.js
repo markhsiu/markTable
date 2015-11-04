@@ -41,7 +41,7 @@ var la_times = {
         var paper = 'Martians have landed on Earth';
         this.publish(paper);
     }
-}
+};
 
 observer.make(blogger);
 observer.make(la_times);

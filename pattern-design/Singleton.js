@@ -27,7 +27,7 @@ function Singleton(){
             Const.single_instance=this;
         }
         return Const.single_instance;
-    }
+    };
 
     return (function(){
         return  new Const();
@@ -43,9 +43,9 @@ var bb= new single();
 var aaa=  new Singleton();
 var bbb= new Singleton();
 
-console.log(a===b)
-console.log(aa===bb)
-console.log(aaa===bbb)
+console.log(a===b);
+console.log(aa===bb);
+console.log(aaa===bbb);
 
 
 
