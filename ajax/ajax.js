@@ -8,23 +8,24 @@
  * @param url
  * @param sendText
  */
-function ajax(method,url,sendText){
+function ajax(method, url, sendText){
 
-    var ids=['MSXML2.XMLHTTP.3.0','MSXML2.XMLHTTP','Microsoft.XMLHTPP'];
+    var ids = ['MSXML2.XMLHTTP.3.0', 'MSXML2.XMLHTTP', 'Microsoft.XMLHTPP'];
     var xhr;
     if(typeof window.XMLHttpRequest === 'function'){
         xhr = new XMLHttpRequest();
     } else {
-        for(var i=0,len=ids.length; i<len; i++){
+        for(var i = 0, len = ids.length; i < len; i++){
             try{
                 xhr = new ActiveXObject(ids[i]);
-            } catch(e) {}
+            } catch (e) {
+            }
         }
     }
 
-    xhr.open(method.toUpperCase(),url,true);
-    xhr.send((typeof sendText==='undefined') ? sendText : '');
-    xhr.onreadystatechange=function(){
+    xhr.open(method.toUpperCase(), url, true);
+    xhr.send((typeof sendText === 'undefined') ? sendText : '');
+    xhr.onreadystatechange = function(){
         if(xhr.readyState < 4){
             return; // not ready yet  if readyState==4 that is ready
         }
@@ -38,27 +39,27 @@ function ajax(method,url,sendText){
     };
 }
 
-var method={
-    GET: 'GET',
-    POST: 'POST'
+var method = {
+    GET : 'GET',
+    POST : 'POST'
 }
 
 // add listener for dom click
-function paraHandler(dom,callback){
+function paraHandler(dom, callback){
     if(dom.addEventListener){ //FF
-        dom.addEventListener('click',callback,false);
+        dom.addEventListener('click', callback, false);
     } else if(dom.attachEvent){ //IE
-        dom.attachEvent('onclick',callback);
+        dom.attachEvent('onclick', callback);
     } else {
-        dom.onclick=callback;
+        dom.onclick = callback;
     }
 }
 
 
-function ajaxJsonp (url){
-    var script=document.createElement('iframe');
+function ajaxJsonp(url){
+    var script = document.createElement('iframe');
 
-    script.setAttribute('src',url);
+    script.setAttribute('src', url);
     document.body.appendChild(script);
 
 }

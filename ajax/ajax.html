@@ -22,7 +22,7 @@
 
 
             function googleSearch(myquery){
-                 ajaxJsonp('http://google.com/search?callback=resultsCallBack&q=' + myquery);
+                ajaxJsonp('http://google.com/search?callback=resultsCallBack&q=' + myquery);
             }
             function resultsCallBack(data){
                 //document.getElementById('content').innerHTML = data.;
@@ -31,9 +31,9 @@
             (function(){
                 // test();
 
-                paraHandler(document.getElementById('search'),function(){
+                paraHandler(document.getElementById('search'), function(){
                     var q = document.getElementById('myquery');
-                     googleSearch(q.value);
+                    googleSearch(q.value);
                 });
 
             })();
