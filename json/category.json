@@ -1,0 +1,49 @@
+{
+	tableName : "CATEGORY",
+	sql : " select * from (select A.uuid,A.code,A.name,A.layer,B.name as pname,A.puuid from CATEGORY A left join CATEGORY B on A.puuid=B.uuid ) A where 1=1   start with A.puuid='0' connect by prior A.uuid=A.puuid",
+	formSQL : "select A.uuid,A.code,A.name,A.puuid,A.layer,A.description,case when B.name is null then '根节点' else to_char(B.name) end   type from  CATEGORY A left join CATEGORY B on A.puuid=B.uuid where A.uuid=? ",
+	html : {
+		title : "信息资源编目分类",
+		location : [
+			"信息资源编目分类",
+			"列表"
+		],
+		search : [{
+				name : "编码",
+				key : "CODE"
+			}, {
+				name : "名称",
+				key : "NAME"
+			}, {
+				name : "所属",
+				key : "PNAME",
+			}
+		],
+		crudButton : {
+			save : true,
+			delete : true
+		},
+		style : {
+			layer : {
+				area : [
+					"750px",
+					"500px"
+				]
+			}
+		},
+		header : [{
+				name : "编码",
+				key : "CODE",
+				align : "center"
+			}, {
+				name : "名称",
+				key : "NAME",
+				align : "center"
+			}, {
+				name : "所属",
+				key : "PNAME",
+				align : "center"
+			}
+		] 
+	}
+}

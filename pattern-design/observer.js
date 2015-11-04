@@ -69,3 +69,6 @@ console.log('----------------------------------');
 la_times.addSubscriber(jill.gossip);
 console.log('----------------------------------');
 la_times.newIssue();
+
+
+ 
