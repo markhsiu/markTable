@@ -22,7 +22,7 @@
 	 
 	$.fn[pluginName] = function (options) {
 		 var MarkTable = new MarkTable(this,options);
-		 return 
+		 return ;
 	};
  
 	
